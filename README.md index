@@ -1,0 +1,343 @@
+# tarea.html<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Primera Tarea de Electiva Web 1</title>
+
+  <style>
+    :root {
+      --amarillo-pollito: #CEA958;
+      --azul-cielo: #86C9E8;
+      --rojo-sangre: #740606;
+      --radio-del-borde: 15px;
+      --verde-manzana: #88B60C;
+      --gris: #6b7280;
+    }
+
+    @font-face {
+      font-family: DauphinPlain;
+      src: url(./fonts/DauphinPlain.woff) format('woff');
+      font-display: swap;
+      /Esto es para que mientras carga la fuente se muestre alguna otra fuente disponible en el sistema operativo/
+    }
+
+    * {
+      font-family: Arial;
+    }
+
+    /* 1. Aseguramos que toda la pantalla esté cubierta */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* 2. Convertimos el body en un contenedor flexible vertical */
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 3. El contenido principal empuja al footer hacia abajo */
+    main {
+      flex: 1;
+    }
+
+    /* 4. Estilos opcionales para tu footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      color: white;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    /* Estilos principales de la barra de navegación */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      /* Empuja el h1 a la izquierda y el div a la derecha */
+      align-items: center;
+      /* Centra verticalmente los elementos */
+      background-color: #333;
+      /* Color de fondo oscuro */
+      padding: 0rem 0rem;
+      /* Espaciado interno (arriba/abajo izquierda/derecha) */
+    }
+
+    /* Estilos para el título */
+    .navbar h1 {
+      color: #fff;
+      margin: 0;
+      /* Quita los márgenes por defecto del h1 */
+      font-size: 1.5rem;
+    }
+
+    /* Estilos para los enlaces */
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      /* Quita el subrayado de los enlaces */
+      margin-left: 1.5rem;
+      /* Separa los enlaces entre sí */
+      font-weight: 500;
+      transition: color 0.3s ease;
+      /* Suaviza el cambio de color al pasar el mouse */
+    }
+
+    /* Efecto al pasar el mouse por encima de los enlaces */
+    .nav-links a:hover {
+      color: yellow;
+    }
+
+    footer {
+      height: 70px;
+      max-height: 70px;
+    }
+
+    footer img {
+      width: 50px;
+      height: 50px;
+
+    }
+
+    .tarjetaConBordeIzquierdo {
+
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border-radius: var(--radio-del-borde);
+      border-left: 5px solid var(--amarillo-pollito);
+
+    }
+
+    .borderojo {
+      border-left: 5px solid var(--rojo-sangre);
+    }
+
+    .bordeazul {
+      border-left: 5px solid var(--azul-cielo);
+    }
+
+    .bordeverde {
+      border-left: 5px solid var(--verde-manzana);
+    }
+
+
+    h2,
+    h3,
+    h4 {
+      font-family: DauphinPlain;
+    }
+
+
+    main {
+      display: grid;
+      /esta parte que sigue es para que el contenido vaya a la izquierda y el aside a la derecha/
+      grid-template-columns: 3fr 1fr;
+
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    /********** Estilo del aside **********/
+
+
+    .lorem-aside {
+      background-color: #f9f9fb;
+      border-left: 4px solid var(--rojo-sangre);
+      padding: 0;
+      border-radius: 8px;
+      max-width: 300px;
+      font-family: sans-serif;
+
+    }
+
+    .aside-badge {
+      display: inline-block;
+      background-color: #e0e7ff;
+      color: #3b1702;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .lorem-aside h3 {
+      margin: 0 0 10px 0;
+      color: #1f2937;
+      font-size: 1.2rem;
+    }
+
+    .lorem-aside p {
+      color: #4b5563;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .aside-quote {
+      font-style: italic;
+      color: var(--gris);
+      border-left: 2px solid #e5e7eb;
+      padding-left: 10px;
+      margin: 0 0 15px 0;
+      font-size: 0.85rem;
+    }
+
+    .aside-link {
+      color: var(--amarillo-pollito);
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .aside-link:hover {
+      color: var(--rojo-sangre);
+      text-decoration: underline;
+    }
+
+
+
+
+    /**************************/
+  </style>
+
+
+
+
+</head>
+
+<body>
+
+  <head>
+
+    <nav class="navbar">
+      <h1>Pr&aacute;ctica de BoxModel</h1>
+
+      <!--La idea es modificar los enlaces para que nos lleven a las secciones que tienen un id que servirá de ancla o enlace a la misma página -->
+      <div class="nav-links">
+        <a href="#">Opción 1</a>
+        <a href="#">Opción 2</a>
+        <a href="#">Opción 3 </a>
+        <a href="#">Opción 4 </a>
+      </div>
+    </nav>
+  </head>
+  <main>
+    <section>
+      <article id="ancla1">
+        <div class="tarjetaConBordeIzquierdo bordeverde">
+          <h2>¿Qué es Lorem Ipsum?</h2>
+          <p>
+            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el
+            texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se
+            dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
+            libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en
+            documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la
+            creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con
+            software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+
+        </div>
+      </article>
+      <article id="ancla2">
+        <div class="tarjetaConBordeIzquierdo">
+          <h2>¿De dónde viene?(Sección 2)</h2>
+          <p>
+            Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus
+            raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que
+            este
+            adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de
+            Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur",
+            en
+            un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable.
+            Lorem
+            Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y
+            El
+            Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy
+            popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de
+            una linea en la sección 1.10.32
+          </p>
+
+          <p>
+            El trozo de texto estándar de Lorem Ipsum usado desde el año 1966 es reproducido debajo para aquellos
+            interesados. Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicero son también
+            reproducidas en su forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en
+            1914 por H. Rackham.</p>
+        </div>
+      </article>
+
+      <article id="ancla3">
+        <div class="tarjetaConBordeIzquierdo bordeazul">
+          <h2>¿Por qué lo usamos?</h2>
+          <p>
+            Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un
+            sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos
+            normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos
+            textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas
+            web
+            usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por
+            resultado
+            muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han
+            evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo
+            insertándole humor y cosas por el estilo).
+          </p>
+        </div>
+      </article>
+      <article id="ancla4">
+        <div class="tarjetaConBordeIzquierdo borderojo">
+          <h2>¿Dónde puedo conseguirlo?</h2>
+          <p>
+            Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles, pero la mayoría sufrió alteraciones en
+            alguna manera, ya sea porque se le agregó humor, o palabras aleatorias que no parecen ni un poco creíbles.
+            Si
+            vas a utilizar un pasaje de Lorem Ipsum, necesitás estar seguro de que no hay nada avergonzante escondido en
+            el medio del texto. Todos los generadores de Lorem Ipsum que se encuentran en Internet tienden a repetir
+            trozos predefinidos cuando sea necesario, haciendo a este el único generador verdadero (válido) en la
+            Internet. Usa un diccionario de mas de 200 palabras provenientes del latín, combinadas con estructuras muy
+            útiles de sentencias, para generar texto de Lorem Ipsum que parezca razonable. Este Lorem Ipsum generado
+            siempre estará libre de repeticiones, humor agregado o palabras no características del lenguaje, etc.</p>
+        </div>
+      </article>
+    </section>
+
+
+
+
+
+    <aside class="lorem-aside">
+      <div class="aside-badge">¿Sabías que?</div>
+      <h3>El Mito de Cicerón</h3>
+      <p>
+        Aunque parece latín sin sentido, el <em>Lorem Ipsum</em> tiene raíces en una pieza de la literatura latina
+        clásica del año 45 a.C., escrita por el filósofo <strong>Cicerón</strong>.
+      </p>
+      <blockquote class="aside-quote">
+        "De finibus bonorum et malorum"
+      </blockquote>
+      <a href="#historia" class="aside-link">Leer más sobre el origen →</a>
+    </aside>
+  </main>
+
+  <footer>
+
+    <h4>Nuestras Redes Sociales</h4>
+
+    <img src="https://proferobyir.github.io/pictures/rrss/facebook.png">
+
+    <img src="https://proferobyir.github.io/pictures/rrss/youtube.png">
+
+    <img src="https://proferobyir.github.io/pictures/rrss/x.png">
+
+    <img src="https://proferobyir.github.io/pictures/rrss/instagram.png">
+  </footer>
+</body>
+
+</html>
